@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import ManagerAsideView from './ManagerAsideView.vue';
-import ManageUserView from './ManageUserView.vue';
 import InconLogo from '@/components/icons/InconLogo.vue';
 </script>
 
@@ -17,7 +16,7 @@ import InconLogo from '@/components/icons/InconLogo.vue';
 			<el-container>
 				<ManagerAsideView />
 				<el-main class="main">
-					<ManageUserView />
+					<RouterView/>
 				</el-main>
 			</el-container>
 		</el-container>

@@ -6,7 +6,7 @@ const router = createRouter({
 	routes: [
 		{
 			path: "/",
-			redirect: "/login"
+			redirect: "/login",
 		},
 		{
 			path: "/login",
@@ -24,7 +24,42 @@ const router = createRouter({
 		{
 			path: "/register",
 			name: "注册",
-			component: () => import("../views/RegisterView.vue")
+			component: () => import("../views/RegisterView.vue"),
+		},
+		{
+			path: "/user",
+			name: "用户主页面",
+			component: () => import("../views/UserMainView.vue"),
+		},
+		{
+			path: "/manager-login",
+			name: "管理员登录",
+			component: () => import("../views/manager/ManageLoginView.vue"),
+		},
+		{
+			path: "/manger",
+			name: "管理员主页面",
+			component: () => import("../views/manager/ManagerView.vue"),
+			children: [
+				{
+					path: "users",
+					name: "管理员-用户",
+					component: () =>
+						import("../views/manager/ManageUserView.vue"),
+				},
+				{
+					path: "goods",
+					name: "管理员-商品",
+					component: () =>
+						import("../views/manager/ManagerGoodsView.vue"),
+				},
+				{
+					path: "orders",
+					name: "管理员-订单",
+					component: () =>
+						import("../views/manager/ManageOrderView.vue"),
+				},
+			],
 		},
 	],
 });
