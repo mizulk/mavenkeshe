@@ -8,8 +8,22 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
+    ElContainer: typeof import('element-plus/es')['ElContainer']
+    ElFooter: typeof import('element-plus/es')['ElFooter']
+    ElForm: typeof import('element-plus/es')['ElForm']
+    ElFormItem: typeof import('element-plus/es')['ElFormItem']
+    ElHeader: typeof import('element-plus/es')['ElHeader']
+    ElInput: typeof import('element-plus/es')['ElInput']
+    ElMain: typeof import('element-plus/es')['ElMain']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    IconDayMode: typeof import('./src/components/icons/IconDayMode.vue')['default']
+    IconNightMode: typeof import('./src/components/icons/IconNightMode.vue')['default']
+    IconUser: typeof import('./src/components/icons/IconUser.vue')['default']
+    InconLogo: typeof import('./src/components/icons/InconLogo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    UserMainButton: typeof import('./src/components/UserMainButton.vue')['default']
+    UserMainInfor: typeof import('./src/components/UserMainInfor.vue')['default']
   }
 }
