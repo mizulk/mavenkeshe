@@ -21,13 +21,10 @@ const emit = defineEmits<{
 		text-decoration: underline;
 		color: #969696;
 		font-size: 2rem;
-<<<<<<< HEAD
 
 		&:active{
 			background-color: #9bb9ae;
 		}
-=======
->>>>>>> 825d5b5721ad9df496a53fe424268ace11a86971
 	}
 }
 </style>
