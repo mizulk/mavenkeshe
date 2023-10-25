@@ -26,13 +26,14 @@
 	--color-background: var(--vt-c-white);
 	--color-text: var(--vt-c-text-light-1);
 	--background: #fff;
+	--logo-text-color: #5c341b;
 }
 
-:root.dark {
-	--color-background: var(--vt-c-black);
-	--color-text: var(--vt-c-text-dark-2);
-	color-scheme: dark;
-}
+// :root.dark {
+// 	--color-background: var(--vt-c-black);
+// 	--color-text: var(--vt-c-text-dark-2);
+// 	color-scheme: dark;
+// }
 
 @media (prefers-color-scheme: dark) {
 	:root {
@@ -40,9 +41,17 @@
 	}
 }
 
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html{
+	font-size: 10px;
+}
+
 body {
 	min-height: 100vh;
-	margin: 0;
 	color: var(--color-text);
 	background: var(--color-background);
 	transition:

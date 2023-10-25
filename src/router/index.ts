@@ -6,6 +6,10 @@ const router = createRouter({
 	routes: [
 		{
 			path: "/",
+			redirect: "/login"
+		},
+		{
+			path: "/login",
 			name: "login",
 			component: LoginViewVue,
 		},
@@ -16,6 +20,11 @@ const router = createRouter({
 			// this generates a separate chunk (About.[hash].js) for this route
 			// which is lazy-loaded when the route is visited.
 			component: () => import("../views/AboutView.vue"),
+		},
+		{
+			path: "/register",
+			name: "注册",
+			component: () => import("../views/RegisterView.vue")
 		},
 	],
 });
