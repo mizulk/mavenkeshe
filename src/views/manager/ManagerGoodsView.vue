@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
 	<el-container class="manage-goods">
@@ -13,9 +12,13 @@
 					<el-input placeholder="请输入你要查找的商品类型" />
 				</el-form-item>
 				<el-form-item label="创建时间">
-					<el-date-picker type="daterange" range-separator="To" start-placeholder="开始时间" end-placeholder="结束时间" />
+					<el-date-picker
+						type="daterange"
+						range-separator="To"
+						start-placeholder="开始时间"
+						end-placeholder="结束时间" />
 				</el-form-item>
-				<br>
+				<br />
 				<el-form-item label="单价：">
 					<el-input>
 						<template #prepend>
@@ -47,12 +50,13 @@
 			</el-form>
 		</el-header>
 		<el-main>
-			<el-table>
-
-			</el-table>
+			<el-table> </el-table>
 		</el-main>
 		<el-footer>
-			<el-pagination background layout="prev, pager, next" :total="1000" />
+			<el-pagination
+				background
+				layout="prev, pager, next"
+				:total="1000" />
 		</el-footer>
 	</el-container>
 </template>

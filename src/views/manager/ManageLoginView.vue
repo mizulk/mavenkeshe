@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import InconLogo from '@/components/icons/InconLogo.vue';
-import { reactive } from 'vue'
+import InconLogo from "@/components/icons/InconLogo.vue";
+import { reactive } from "vue";
 
 const managerLoginForm = reactive({
-	userName: '',
-	password: ''
+	userName: "",
+	password: "",
 });
 </script>
 
@@ -13,6 +13,7 @@ const managerLoginForm = reactive({
 		<el-container>
 			<el-header class="manager-login-header">
 				<InconLogo />
+				<span>管理员登录</span>
 			</el-header>
 			<el-main class="manager-login-main">
 				<div class="login-panel">
@@ -28,7 +29,10 @@ const managerLoginForm = reactive({
 							<template #label>
 								<span class="form-label">密码：</span>
 							</template>
-							<el-input v-model="managerLoginForm.password" type="password" clearable />
+							<el-input
+								v-model="managerLoginForm.password"
+								type="password"
+								clearable />
 						</el-form-item>
 						<el-form-item>
 							<el-button class="btn-warpper">登录</el-button>
@@ -49,6 +53,12 @@ const managerLoginForm = reactive({
 
 .manager-login-header {
 	height: 88px;
+
+	span {
+		margin-left: 4rem;
+		font-size: 4rem;
+		color: var(--logo-text-color);
+	}
 }
 
 .manager-login-main {

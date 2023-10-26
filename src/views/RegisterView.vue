@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import InconLogo from '@/components/icons/InconLogo.vue';
-import { reactive, ref } from 'vue'
+import InconLogo from "@/components/icons/InconLogo.vue";
+import { reactive, ref } from "vue";
 
 const registerFrom = reactive({
-	userName: '',
-	password: '',
-	password2: '',
+	userName: "",
+	password: "",
+	password2: "",
 });
 const isChecked = ref(false);
 </script>
@@ -19,7 +19,7 @@ const isChecked = ref(false);
 				</div>
 				<div class="login">
 					<span>已有账号？</span>
-					<RouterLink to="">请登录></RouterLink>
+					<RouterLink to="/login">请登录></RouterLink>
 				</div>
 			</el-header>
 			<!-- <hr> -->
@@ -29,19 +29,25 @@ const isChecked = ref(false);
 						<el-input v-model="registerFrom.userName" />
 					</el-form-item>
 					<el-form-item label="密码：">
-						<el-input v-model="registerFrom.password" type="password" />
+						<el-input
+							v-model="registerFrom.password"
+							type="password" />
 					</el-form-item>
 					<el-form-item label="确认密码：">
-						<el-input v-model="registerFrom.password2" type="password" />
+						<el-input
+							v-model="registerFrom.password2"
+							type="password" />
 					</el-form-item>
 					<el-form-item>
 						<el-checkbox v-model="isChecked">
-							已阅读并同意以下协议<RouterLink to="">小蓝书平台服务协议</RouterLink>
+							已阅读并同意以下协议<RouterLink to="/about"
+								>小蓝书平台服务协议</RouterLink
+							>
 						</el-checkbox>
 					</el-form-item>
 					<el-form-item>
 						<el-button class="register-btn" color="#5c341b">
-							<span style="color: white;">注册</span>
+							<span style="color: white">注册</span>
 						</el-button>
 					</el-form-item>
 				</el-form>
@@ -56,9 +62,9 @@ const isChecked = ref(false);
 	display: flex;
 	align-items: flex-end;
 	justify-content: space-between;
-	border-bottom: #e3e3e2 solid .7rem;
+	border-bottom: #e3e3e2 solid 0.7rem;
 
-	.logo>span {
+	.logo > span {
 		display: inline-block;
 		font-size: 4rem;
 		margin-left: 1rem;
@@ -68,7 +74,7 @@ const isChecked = ref(false);
 	.login {
 		font-size: 2.8rem;
 
-		>span {
+		> span {
 			color: #edddb2;
 		}
 	}

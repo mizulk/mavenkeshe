@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import IconLightning from './icons/IconLightning.vue';
-import ShortItem from './ShortItem.vue';
+import IconLightning from "./icons/IconLightning.vue";
+import ShortItem from "./ShortItem.vue";
 </script>
 
 <template>
@@ -54,7 +54,7 @@ import ShortItem from './ShortItem.vue';
 	margin-top: 2rem;
 
 	.btn {
-		padding: .2rem 5rem;
+		padding: 0.2rem 5rem;
 		background-color: #5ea49a;
 		font-size: 3rem;
 
@@ -65,7 +65,7 @@ import ShortItem from './ShortItem.vue';
 		.icon {
 			display: flex;
 			justify-content: center;
-			padding: .6rem 0;
+			padding: 0.6rem 0;
 		}
 
 		.time {

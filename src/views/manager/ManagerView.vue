@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ManagerAsideView from './ManagerAsideView.vue';
-import InconLogo from '@/components/icons/InconLogo.vue';
+import ManagerAsideView from "./ManagerAsideView.vue";
+import InconLogo from "@/components/icons/InconLogo.vue";
 </script>
 
 <template>
@@ -12,11 +12,11 @@ import InconLogo from '@/components/icons/InconLogo.vue';
 					<span>管理员系统</span>
 				</div>
 			</el-header>
-			<hr>
+			<hr />
 			<el-container>
 				<ManagerAsideView />
 				<el-main class="main">
-					<RouterView/>
+					<RouterView />
 				</el-main>
 			</el-container>
 		</el-container>
@@ -34,7 +34,7 @@ import InconLogo from '@/components/icons/InconLogo.vue';
 	}
 }
 
-.main{
+.main {
 	display: flex;
 }
 

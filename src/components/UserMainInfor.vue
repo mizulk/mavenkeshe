@@ -1,9 +1,9 @@
 <script setup lang="ts">
 defineProps<{
-	text: string
+	text: string;
 }>();
 const emit = defineEmits<{
-	(event: 'on-click'): void
+	(event: "on-click"): void;
 }>();
 </script>
 
@@ -17,12 +17,12 @@ const emit = defineEmits<{
 .activity {
 	margin-left: 4rem;
 
-	>a {
+	> a {
 		text-decoration: underline;
 		color: #969696;
 		font-size: 2rem;
 
-		&:active{
+		&:active {
 			background-color: #9bb9ae;
 		}
 	}

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 defineProps<{
-	text: string
+	text: string;
 }>();
 const emit = defineEmits<{
-	(event: 'click'): void
+	(event: "click"): void;
 }>();
 </script>
 
@@ -18,19 +18,19 @@ const emit = defineEmits<{
 
 <style scoped>
 p {
-	margin-top: .2rem;
+	margin-top: 0.2rem;
 	color: #b3b3b3;
 }
 
-.user-main-btn{
+.user-main-btn {
 	padding: 1rem;
 	transition: 0.4s;
 
-	&:hover{
+	&:hover {
 		background-color: #85dec5;
 	}
 
-	&:active{
+	&:active {
 		background: hsla(160, 100%, 37%, 0.2);
 	}
 }

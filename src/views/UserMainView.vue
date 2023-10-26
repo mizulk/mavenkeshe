@@ -1,14 +1,14 @@
 <script setup lang="ts">
-import InconLogo from '@/components/icons/InconLogo.vue';
-import IconDayMode from '@/components/icons/IconDayMode.vue';
-import InconUser from '@/components/icons/IconUser.vue';
-import UserMainButton from '@/components/UserMainButton.vue';
-import UserMainInfor from '@/components/UserMainInfor.vue';
-import UserMainLeft from '@/components/UserMainLeft.vue';
-import UserMainRight from '@/components/UserMainRight.vue';
+import InconLogo from "@/components/icons/InconLogo.vue";
+import IconDayMode from "@/components/icons/IconDayMode.vue";
+import InconUser from "@/components/icons/IconUser.vue";
+import UserMainButton from "@/components/UserMainButton.vue";
+import UserMainInfor from "@/components/UserMainInfor.vue";
+import UserMainLeft from "@/components/UserMainLeft.vue";
+import UserMainRight from "@/components/UserMainRight.vue";
 
-import { ref } from 'vue'
-import { useDark, useToggle } from '@vueuse/core/index.cjs';
+import { ref } from "vue";
+import { useDark, useToggle } from "@vueuse/core/index.cjs";
 
 const searchContext = ref("");
 
@@ -32,7 +32,7 @@ const toggleDark = useToggle(useDark());
 				<div class="search-warpper">
 					<el-input size="large" v-model="searchContext" />
 					<el-button color="#5c341b" size="large">
-						<span style="color: white;">搜索</span>
+						<span style="color: white">搜索</span>
 					</el-button>
 				</div>
 				<div class="user-warpper">
@@ -47,15 +47,15 @@ const toggleDark = useToggle(useDark());
 				</div>
 			</div>
 			<div class="infor">
-				<div class="describe">
-					美好生活 就在小蓝书！
-				</div>
-				<UserMainInfor text="点击此处领卷 双十一满100" @on-click="console.log('fdfsf')" />
+				<div class="describe">美好生活 就在小蓝书！</div>
+				<UserMainInfor
+					text="点击此处领卷 双十一满100"
+					@on-click="console.log('fdfsf')" />
 			</div>
 		</div>
 		<div class="main-warpper">
-			<UserMainLeft class="left"/>
-			<UserMainRight class="right"/>
+			<UserMainLeft class="left" />
+			<UserMainRight class="right" />
 		</div>
 	</div>
 </template>
@@ -68,7 +68,7 @@ const toggleDark = useToggle(useDark());
 	height: 3.6rem;
 	background-color: #fcf1ba;
 
-	>div {
+	> div {
 		margin-right: 4.8rem;
 	}
 }
@@ -80,7 +80,7 @@ const toggleDark = useToggle(useDark());
 .functional {
 	display: flex;
 
-	>.logo-warpper {
+	> .logo-warpper {
 		margin: 0 10rem;
 		display: flex;
 		flex-direction: column;
@@ -91,7 +91,7 @@ const toggleDark = useToggle(useDark());
 			font-size: 3rem;
 			margin-top: 1rem;
 
-			>span {
+			> span {
 				margin-right: 1rem;
 			}
 		}
@@ -109,7 +109,6 @@ const toggleDark = useToggle(useDark());
 		align-items: center;
 		justify-content: space-evenly;
 	}
-
 }
 
 .infor {
@@ -118,7 +117,7 @@ const toggleDark = useToggle(useDark());
 	flex-direction: row;
 	color: #969696;
 
-	>.describe {
+	> .describe {
 		margin-left: 10rem;
 		font-size: 2rem;
 	}
@@ -130,11 +129,11 @@ const toggleDark = useToggle(useDark());
 	flex-grow: 1;
 	margin: 0 8rem;
 
-	>.left {
+	> .left {
 		flex-grow: 1;
 	}
 
-	>.right {
+	> .right {
 		padding: 0 5rem;
 	}
 }

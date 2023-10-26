@@ -1,5 +1,4 @@
-<script setup lang="ts">
-</script>
+<script setup lang="ts"></script>
 
 <template>
 	<el-container class="manager-user">
@@ -29,12 +28,20 @@
 						<template #append>元</template>
 					</el-input>
 				</el-form-item>
-				<br>
+				<br />
 				<el-form-item label="注册时间：">
-					<el-date-picker type="daterange" range-separator="To" start-placeholder="开始时间" end-placeholder="结束时间" />
+					<el-date-picker
+						type="daterange"
+						range-separator="To"
+						start-placeholder="开始时间"
+						end-placeholder="结束时间" />
 				</el-form-item>
 				<el-form-item label="注册时间：">
-					<el-date-picker type="daterange" range-separator="To" start-placeholder="开始时间" end-placeholder="结束时间" />
+					<el-date-picker
+						type="daterange"
+						range-separator="To"
+						start-placeholder="开始时间"
+						end-placeholder="结束时间" />
 				</el-form-item>
 				<el-form-item>
 					<el-button type="primary">搜索</el-button>
@@ -48,7 +55,10 @@
 			<el-table></el-table>
 		</el-main>
 		<el-footer>
-			<el-pagination background layout="prev, pager, next" :total="1000" />
+			<el-pagination
+				background
+				layout="prev, pager, next"
+				:total="1000" />
 		</el-footer>
 	</el-container>
 </template>
