@@ -37,8 +37,9 @@ const router = createRouter({
 			component: () => import("../views/manager/ManageLoginView.vue"),
 		},
 		{
-			path: "/manger",
+			path: "/manager",
 			name: "管理员主页面",
+			redirect: "/manager/users",
 			component: () => import("../views/manager/ManagerView.vue"),
 			children: [
 				{

@@ -25,6 +25,7 @@ defineProps<{
 	transition: 0.4s;
 	box-sizing: border-box;
 	border: #85dec5 solid 0.2rem;
+	cursor: pointer;
 
 	&:hover {
 		background-color: #85dec5;
@@ -37,8 +38,8 @@ defineProps<{
 
 img {
 	display: block;
-	min-height: 15rem;
-	min-width: 15rem;
+	height: 15rem;
+	width: 15rem;
 }
 
 .describe {

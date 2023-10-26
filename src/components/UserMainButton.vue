@@ -25,6 +25,7 @@ p {
 .user-main-btn {
 	padding: 1rem;
 	transition: 0.4s;
+	cursor: pointer;
 
 	&:hover {
 		background-color: #85dec5;

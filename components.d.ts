@@ -8,7 +8,10 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     ElAside: typeof import('element-plus/es')['ElAside']
+    ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
+    ElCarousel: typeof import('element-plus/es')['ElCarousel']
+    ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElCheckbox: typeof import('element-plus/es')['ElCheckbox']
     ElContainer: typeof import('element-plus/es')['ElContainer']
     ElDatePicker: typeof import('element-plus/es')['ElDatePicker']
@@ -41,6 +44,7 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ShortItem: typeof import('./src/components/ShortItem.vue')['default']
+    UserHader: typeof import('./src/components/UserHader.vue')['default']
     UserMainButton: typeof import('./src/components/UserMainButton.vue')['default']
     UserMainInfor: typeof import('./src/components/UserMainInfor.vue')['default']
     UserMainLeft: typeof import('./src/components/UserMainLeft.vue')['default']

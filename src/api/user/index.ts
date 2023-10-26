@@ -3,12 +3,15 @@ import type {
 	UserInfor,
 	UserLoginForm,
 	UserPage,
+	UserQuery,
 	UserRegisterForm,
 } from "./type";
 import type { Result } from "../type";
 import type { AxiosPromise } from "axios";
 
-export function pageUser(queryParam: UserPage): AxiosPromise<Result<UserPage>> {
+export function pageUser(
+	queryParam: UserPage
+): AxiosPromise<Result<UserQuery<UserInfor[]>>> {
 	return request({
 		url: "/users",
 		method: "get",

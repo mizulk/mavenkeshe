@@ -7,7 +7,7 @@ import ShortItem from "./ShortItem.vue";
 	<div class="left">
 		<div class="top">
 			<div class="hot-item">f</div>
-			<el-carousel trigger="click">
+			<el-carousel trigger="click" style="background-color: aqua">
 				<el-carousel-item v-for="item in 4" :key="item">
 					<h3 text="2xl">{{ item }}</h3>
 				</el-carousel-item>
@@ -21,8 +21,18 @@ import ShortItem from "./ShortItem.vue";
 				</p>
 				<p class="time">00:00开始</p>
 			</div>
-			<ShortItem name="星达遥控器可连接蓝牙" price="59.9" src="" />
-			<ShortItem name="iPhone 13(A2634)" price="5999.9" src="" />
+			<ShortItem
+				name="星达遥控器可连接蓝牙"
+				price="59.9"
+				src="http://localhost:8080/item1.png" />
+			<ShortItem
+				name="iPhone 13(A2634)"
+				price="5999.9"
+				src="http://localhost:8080/item2.png" />
+			<ShortItem
+				name="iPhone 13(A2634)"
+				price="5999.9"
+				src="http://localhost:8080/item3.png" />
 		</div>
 	</div>
 </template>

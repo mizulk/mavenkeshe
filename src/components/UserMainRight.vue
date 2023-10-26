@@ -92,6 +92,7 @@ function onItemClick(content: string): void {
 		text-decoration: underline;
 		border: 0.1rem gray solid;
 		transition: 0.4s;
+		cursor: pointer;
 
 		&:hover {
 			background-color: #85dec5;

@@ -1,7 +1,11 @@
+import type { AxiosPromise } from "axios";
 import request from "../request";
-import type { OrderInfor, OrderPage } from "./type";
+import type { OrderInfor, OrderPage, OrderQuery } from "./type";
+import type { Result } from "../type";
 
-export function pageOrder(queryParam: OrderPage) {
+export function pageOrder(
+	queryParam: OrderPage
+): AxiosPromise<Result<OrderQuery<OrderInfor[]>>> {
 	return request({
 		url: "/orders",
 		method: "get",

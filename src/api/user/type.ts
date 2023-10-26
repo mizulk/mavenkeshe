@@ -1,4 +1,4 @@
-import type { PageQuery } from "../type";
+import type { PageQuery, PageResult } from "../type";
 
 export interface UserInfor extends UserRegisterForm {
 	id: number;
@@ -8,12 +8,11 @@ export interface UserInfor extends UserRegisterForm {
 }
 
 export interface UserPage extends PageQuery {
-	userName: string;
-	name: string;
-	gender: number;
-	saving: number;
-	beginTime: string;
-	endTime: string;
+	userName?: string;
+	name?: string;
+	gender?: number;
+	saving?: number;
+	time?: [Date, Date] | [null, null];
 }
 
 export interface UserLoginForm {
@@ -23,10 +22,8 @@ export interface UserLoginForm {
 
 export interface UserRegisterForm extends UserLoginForm {
 	gender: number;
+	password2?: string;
 	phoneNumber?: string;
 }
 
-export interface UserQuery {
-	total: number;
-	data: UserInfor[];
-}
+export type UserQuery<UserInfor> = PageResult<UserInfor>;

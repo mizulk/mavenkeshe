@@ -1,3 +1,5 @@
+import type { PageResult } from "../type";
+
 export interface OrderInfor extends AddOrderForm {
 	id: number;
 }
@@ -20,3 +22,5 @@ export interface AddOrderForm {
 	totalPrice: number;
 	goodPrice: number;
 }
+
+export type OrderQuery<OrderInfor> = PageResult<OrderInfor>;

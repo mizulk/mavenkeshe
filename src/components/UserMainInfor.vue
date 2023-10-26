@@ -16,6 +16,7 @@ const emit = defineEmits<{
 <style scoped>
 .activity {
 	margin-left: 4rem;
+	cursor: pointer;
 
 	> a {
 		text-decoration: underline;

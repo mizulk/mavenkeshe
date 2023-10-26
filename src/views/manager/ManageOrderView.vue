@@ -1,44 +1,134 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { pageOrder } from "@/api/order";
+import type { OrderInfor, OrderPage, OrderQuery } from "@/api/order/type";
+import type { Result } from "@/api/type";
+import type { AxiosResponse } from "axios";
+import { ElMessage } from "element-plus";
+import { onMounted, reactive, ref } from "vue";
+
+const total = ref(0);
+const tableData = ref<OrderInfor[]>();
+const isSearching = ref(false);
+
+const orderSearchForm = reactive<OrderPage>({
+	page: 1,
+	pageSize: 10,
+	id: undefined,
+	userId: undefined,
+	goodId: undefined,
+	amount: undefined,
+	totalPrice: undefined,
+	goodPrice: undefined,
+});
+
+function onSearchBtnClick() {
+	pageOrder(orderSearchForm).then(handleRespone).catch(handleError);
+}
+
+async function onCloseBtnClick() {
+	orderSearchForm.page = 1;
+	orderSearchForm.pageSize = 10;
+	orderSearchForm.id = undefined;
+	orderSearchForm.amount = undefined;
+	orderSearchForm.goodId = undefined;
+	orderSearchForm.goodPrice = undefined;
+	orderSearchForm.totalPrice = undefined;
+	await pageOrder(orderSearchForm).then(handleRespone).catch(handleError);
+	isSearching.value = false;
+}
+
+function handleRespone(
+	result: AxiosResponse<Result<OrderQuery<OrderInfor[]>>>
+) {
+	if (result.data.code == 1) {
+		if (result.data.data.total == 0) {
+			ElMessage({
+				message: "无数据",
+				type: "warning",
+			});
+		}
+		total.value = result.data.data.total;
+		tableData.value = result.data.data.data;
+		isSearching.value = true;
+	} else {
+		ElMessage({
+			message: "请求失败",
+			type: "error",
+		});
+	}
+}
+
+function handleError(e: PromiseLike<void>) {
+	console.log("查询订单时出现错误", e);
+}
+
+onMounted(() => {
+	pageOrder(orderSearchForm).then(handleRespone).catch(handleError);
+});
+</script>
 
 <template>
 	<el-container class="manager-order">
-		<el-header>
+		<el-header class="header">
 			<h2>搜索订单</h2>
 			<el-form :inline="true">
-				<el-form-item label="用户名">
-					<el-input />
+				<el-form-item label="用户id">
+					<el-input
+						placeholder="请输入你需要查询的用户id"
+						v-model="orderSearchForm.userId" />
 				</el-form-item>
 				<el-form-item label="商品id">
-					<el-input />
+					<el-input
+						placeholder="请输入你需要查询的商品id"
+						v-model="orderSearchForm.goodId" />
 				</el-form-item>
-				<el-form-item label="购买时间">
-					<el-date-picker
-						type="daterange"
-						range-separator="To"
-						start-placeholder="开始时间"
-						end-placeholder="结束时间" />
+				<br />
+				<el-form-item label="购买数量">
+					<el-input
+						placeholder="请输入你需要查询的购买数量"
+						v-model="orderSearchForm.amount">
+						<template #append>个</template>
+					</el-input>
+				</el-form-item>
+				<el-form-item label="购买价格">
+					<el-input
+						placeholder="请输入你需要查询的购买价格"
+						v-model="orderSearchForm.goodPrice">
+						<template #append>元</template>
+					</el-input>
 				</el-form-item>
 				<el-form-item>
-					<el-button type="primary">搜索</el-button>
+					<el-button type="primary" @click="onSearchBtnClick()"
+						>搜索</el-button
+					>
 				</el-form-item>
 				<el-form-item>
-					<el-button type="primary" disabled>关闭</el-button>
+					<el-button
+						type="infor"
+						:disabled="!isSearching"
+						@click="onCloseBtnClick()"
+						>关闭</el-button
+					>
 				</el-form-item>
 			</el-form>
 		</el-header>
 		<el-main>
-			<el-table> </el-table>
+			<el-table :data="tableData"> </el-table>
 		</el-main>
 		<el-footer>
 			<el-pagination
 				background
 				layout="prev, pager, next"
-				:total="1000" />
+				:total="total" />
 		</el-footer>
 	</el-container>
 </template>
 
 <style scoped lang="less">
+.header {
+	height: 12rem;
+}
+
 .manager-order {
 	flex-grow: 1;
 }
