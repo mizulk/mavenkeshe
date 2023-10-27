@@ -59,6 +59,7 @@ const Qs = [Q1, Q2, Q3];
 }
 .carousel-item {
 	display: block;
+	width: 45rem;
 }
 .bottom {
 	flex-grow: 1;

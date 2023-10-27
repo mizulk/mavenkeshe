@@ -5,7 +5,7 @@ export interface CartItem {
 }
 
 export interface PageCart {
-	page?: number;
+	page: number;
 	pageSize: number;
 	userId?: number;
 	goodId?: number;

@@ -4,12 +4,14 @@ import IconDayMode from "@/components/icons/IconDayMode.vue";
 import InconUser from "@/components/icons/IconUser.vue";
 import UserMainButton from "@/components/UserMainButton.vue";
 import { useDark, useToggle } from "@vueuse/core/index.cjs";
+import { userStore as useUserStore } from "@/stores/user";
 
+const userStore = useUserStore();
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
 
 const emits = defineEmits<{
-	(event: "click"): void;
+	(event: "myOrder"): void;
 }>();
 </script>
 
@@ -18,7 +20,7 @@ const emits = defineEmits<{
 		<div>商家服务</div>
 		<div>手机小蓝书</div>
 		<div>我的小蓝书</div>
-		<div>我的订单</div>
+		<div @click="emits('myOrder')">我的订单</div>
 	</nav>
 	<div class="functional-warpper">
 		<div class="functional">
@@ -33,7 +35,12 @@ const emits = defineEmits<{
 				<UserMainButton text="白天模式" @click="toggleDark()">
 					<IconDayMode height="60" />
 				</UserMainButton>
-				<UserMainButton text="登录/注册">
+				<UserMainButton
+					:text="
+						userStore.userName == ''
+							? '登录/注册'
+							: userStore.userName
+					">
 					<InconUser height="60" />
 				</UserMainButton>
 			</div>

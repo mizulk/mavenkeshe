@@ -3,12 +3,12 @@ defineProps<{
 	text: string;
 }>();
 const emit = defineEmits<{
-	(event: "click"): void;
+	(event: "myOrder"): void;
 }>();
 </script>
 
 <template>
-	<div @click="emit('click')" class="user-main-btn">
+	<div @click="emit('myOrder')" class="user-main-btn">
 		<div>
 			<slot></slot>
 		</div>
@@ -20,6 +20,7 @@ const emit = defineEmits<{
 p {
 	margin-top: 0.2rem;
 	color: #b3b3b3;
+	text-align: center;
 }
 
 .user-main-btn {

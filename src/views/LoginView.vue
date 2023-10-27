@@ -47,9 +47,9 @@ const onLoginBtnClick = async (formEl: FormInstance | undefined) => {
 	await formEl.validate((valid: boolean) => {
 		if (valid) {
 			login(loginForm)
-				.then((result) => {
-					if (result.data.code == 1) {
-						store.setToken(result.data.data);
+				.then(({ data }) => {
+					if (data.code == 1) {
+						store.setToken(data.data);
 						router.push({ path: "/user" });
 					} else {
 						ElMessage({
