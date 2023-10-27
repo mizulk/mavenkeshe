@@ -27,10 +27,3 @@ export function queryOrder(id: number) {
 		method: "get",
 	});
 }
-
-export function offShelf(id: number) {
-	return request({
-		url: `/orders/${id}`,
-		method: "put",
-	});
-}

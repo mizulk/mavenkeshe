@@ -114,13 +114,33 @@ onMounted(() => {
 			</el-form>
 		</el-header>
 		<el-main>
-			<el-table :data="tableData"></el-table>
+			<el-table :data="tableData">
+				<el-table-column prop="userName" label="用户登录名" />
+				<el-table-column prop="name" label="用户姓名" />
+				<el-table-column prop="gender" label="性别" />
+				<el-table-column prop="saving" label="余额(元)" >
+					<template #default="scope">
+						<el-tag
+							:type="
+								scope.row.saving > 100 ? 'success' : 'danger'
+							">
+							{{ scope.row.saving }}</el-tag
+						>
+					</template>
+				</el-table-column>
+				<el-table-column label="注册时间" >
+					<template #default="scope">
+						{{ scope.row.createTime.replace('T',' ') }}
+					</template>
+				</el-table-column>
+			</el-table>
 		</el-main>
 		<el-footer>
 			<el-pagination
 				background
 				layout="prev, pager, next"
-				:total="total" />
+				:total="total" 
+				v-model="userSearchForm.page"/>
 		</el-footer>
 	</el-container>
 </template>

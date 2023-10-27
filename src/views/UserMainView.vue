@@ -4,9 +4,7 @@ import UserMainInfor from "@/components/UserMainInfor.vue";
 import UserMainLeft from "@/components/UserMainLeft.vue";
 import UserMainRight from "@/components/UserMainRight.vue";
 
-import { useDark, useToggle } from "@vueuse/core/index.cjs";
 
-const toggleDark = useToggle(useDark());
 </script>
 
 <template>

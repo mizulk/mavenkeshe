@@ -4,6 +4,9 @@ import IconDayMode from "@/components/icons/IconDayMode.vue";
 import InconUser from "@/components/icons/IconUser.vue";
 import UserMainButton from "@/components/UserMainButton.vue";
 import { ref } from "vue";
+import { useDark, useToggle } from "@vueuse/core/index.cjs";
+
+const toggleDark = useToggle(useDark());
 
 const searchContext = ref("");
 </script>
@@ -28,7 +31,7 @@ const searchContext = ref("");
 				</el-button>
 			</div>
 			<div class="user-warpper">
-				<UserMainButton text="白天模式">
+				<UserMainButton text="白天模式" @click="toggleDark()">
 					<IconDayMode height="60" />
 				</UserMainButton>
 				<UserMainButton text="登录/注册">

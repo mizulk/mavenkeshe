@@ -1,15 +1,24 @@
 <script setup lang="ts">
 import IconLightning from "./icons/IconLightning.vue";
 import ShortItem from "./ShortItem.vue";
+import Item1 from '@/assets/item.jpg'
+import Item2 from '@/assets/item2.jpg'
+import Item3 from '@/assets/item3.jpg'
+import Q1 from '@/assets/q1.jpg'
+import Q2 from '@/assets/q2.jpg'
+import Q3 from '@/assets/q3.jpg'
+import A from '@/assets/a.jpg'
+
+const Qs = [Q1,Q2,Q3]
 </script>
 
 <template>
 	<div class="left">
 		<div class="top">
-			<div class="hot-item">f</div>
-			<el-carousel trigger="click" style="background-color: aqua">
-				<el-carousel-item v-for="item in 4" :key="item">
-					<h3 text="2xl">{{ item }}</h3>
+			<div class="hot-item"><img :src="A"></div>
+			<el-carousel trigger="click">
+				<el-carousel-item v-for="item,index in Qs" :key="index">
+					<img class="carousel-item" :src="item" alt="">
 				</el-carousel-item>
 			</el-carousel>
 		</div>
@@ -24,15 +33,15 @@ import ShortItem from "./ShortItem.vue";
 			<ShortItem
 				name="星达遥控器可连接蓝牙"
 				price="59.9"
-				src="http://localhost:8080/item1.png" />
+				:src="Item1" />
 			<ShortItem
 				name="iPhone 13(A2634)"
 				price="5999.9"
-				src="http://localhost:8080/item2.png" />
+				:src="Item2" />
 			<ShortItem
 				name="iPhone 13(A2634)"
 				price="5999.9"
-				src="http://localhost:8080/item3.png" />
+				:src="Item3" />
 		</div>
 	</div>
 </template>
@@ -44,9 +53,10 @@ import ShortItem from "./ShortItem.vue";
 
 	.hot-item {
 		flex-grow: 1;
-		background-color: #aaa;
 		margin-top: 1rem;
-		margin-right: 2rem;
+		>img{
+			height: 46rem;
+		}
 	}
 
 	.el-carousel {
@@ -56,7 +66,9 @@ import ShortItem from "./ShortItem.vue";
 		margin: 1rem;
 	}
 }
-
+.carousel-item{
+	display: block;
+}
 .bottom {
 	flex-grow: 1;
 	display: flex;

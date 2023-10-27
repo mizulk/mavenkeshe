@@ -7,7 +7,17 @@ import { ElMessage } from "element-plus";
 import { onMounted, reactive, ref } from "vue";
 
 const total = ref(0);
-const tableData = ref<OrderInfor[]>();
+const tableData = ref<OrderInfor[]>([
+	{
+		id: 1,
+		userId: 1,
+		goodId: 1,
+		amount: 1,
+		totalPrice: 1,
+		goodPrice: 1,
+	},
+]);
+
 const isSearching = ref(false);
 
 const orderSearchForm = reactive<OrderPage>({
@@ -113,7 +123,14 @@ onMounted(() => {
 			</el-form>
 		</el-header>
 		<el-main>
-			<el-table :data="tableData"> </el-table>
+			<el-table :data="tableData">
+				<el-table-column prop="id" label="订单号" />
+				<el-table-column prop="userId" label="用户id" />
+				<el-table-column prop="goodId" label="商品id" />
+				<el-table-column prop="amount" label="购买数量" />
+				<el-table-column prop="totalPrice" label="金额" />
+				<el-table-column prop="goodPrice" label="商品价格" />
+			</el-table>
 		</el-main>
 		<el-footer>
 			<el-pagination
