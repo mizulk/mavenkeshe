@@ -39,14 +39,6 @@ const rules = reactive<FormRules<UserLoginForm>>({
 			message: "请输入账号",
 			trigger: "blur",
 		},
-		{
-			validator: (_rule, value, callback) => {
-				if (value.length != 8)
-					callback(new Error("账户不足8位，请检查"));
-				else callback();
-			},
-			trigger: "blur",
-		},
 	],
 });
 
@@ -58,7 +50,7 @@ const onLoginBtnClick = async (formEl: FormInstance | undefined) => {
 				.then((result) => {
 					if (result.data.code == 1) {
 						store.setToken(result.data.data);
-						router.push({ path: "/user-main" });
+						router.push({ path: "/user" });
 					} else {
 						ElMessage({
 							message: "账号或密码错误！",

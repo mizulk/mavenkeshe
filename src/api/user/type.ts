@@ -2,7 +2,7 @@ import type { PageQuery, PageResult } from "../type";
 
 export interface UserInfor extends UserRegisterForm {
 	id: number;
-	saving: number;
+	savings: number;
 	createTime: string;
 	updateTime: string;
 }
@@ -11,7 +11,7 @@ export interface UserPage extends PageQuery {
 	userName?: string;
 	name?: string;
 	gender?: number;
-	saving?: number;
+	savings?: number;
 	time?: [Date, Date] | [null, null];
 }
 

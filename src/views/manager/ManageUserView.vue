@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import type { UserPage, UserInfor, UserQuery } from "@/api/user/type";
-import { pageUser } from "@/api/user/index";
+import { delUser, pageUser } from "@/api/user/index";
 import { onMounted, reactive, ref } from "vue";
-import { ElMessage } from "element-plus";
+import { ElMessage, ElMessageBox } from "element-plus";
 import type { AxiosResponse } from "axios";
 import type { Result } from "@/api/type";
+import { Delete } from "@element-plus/icons-vue";
 
 const total = ref<number>(0);
-const tableData = ref<UserInfor[]>();
+const tableData = ref<UserInfor[]>([]);
 const isSearching = ref(false);
 
 const userSearchForm = reactive<UserPage>({
@@ -20,9 +21,30 @@ function onSearchBtnClick() {
 	pageUser(userSearchForm).then(handleRespone).catch(handleError);
 }
 
+function onDelBtnClick(id: number) {
+	ElMessageBox.confirm("你确定要删除这个商品")
+		.then(() => {
+			delUser(id)
+				.then(({ data }) => {
+					ElMessage({
+						message: data.code == 1 ? "删除成功" : "删除失败",
+						type: data.code == 1 ? "success" : "error",
+					});
+					tableData.value.filter((item: UserInfor) => item.id != id);
+				})
+				.catch((e) =>
+					ElMessage({
+						message: "删除失败" + e,
+						type: "error",
+					})
+				);
+		})
+		.catch(() => ElMessage("已取消"));
+}
+
 async function onCloseBtnClick() {
 	userSearchForm.userName = undefined;
-	userSearchForm.saving = undefined;
+	userSearchForm.savings = undefined;
 	userSearchForm.pageSize = 10;
 	userSearchForm.page = 1;
 	userSearchForm.gender = undefined;
@@ -39,7 +61,7 @@ function handleRespone(result: AxiosResponse<Result<UserQuery<UserInfor[]>>>) {
 			});
 		}
 		total.value = result.data.data.total;
-		tableData.value = result.data.data.data;
+		tableData.value = result.data.data.rows;
 		isSearching.value = true;
 	} else {
 		ElMessage({
@@ -85,7 +107,7 @@ onMounted(() => {
 				<el-form-item label="存款：">
 					<el-input
 						placeholder="请输入需要查询的存款"
-						v-model="userSearchForm.saving">
+						v-model="userSearchForm.savings">
 						<template #append>元</template>
 					</el-input>
 				</el-form-item>
@@ -117,20 +139,33 @@ onMounted(() => {
 			<el-table :data="tableData">
 				<el-table-column prop="userName" label="用户登录名" />
 				<el-table-column prop="name" label="用户姓名" />
-				<el-table-column prop="gender" label="性别" />
-				<el-table-column prop="saving" label="余额(元)" >
+				<el-table-column prop="gender" label="性别">
+					<template #default="scope">{{
+						scope.row.gender == 0 ? "男" : "女"
+					}}</template>
+				</el-table-column>
+				<el-table-column prop="saving" label="余额(元)">
 					<template #default="scope">
 						<el-tag
 							:type="
 								scope.row.saving > 100 ? 'success' : 'danger'
 							">
-							{{ scope.row.saving }}</el-tag
+							{{ scope.row.savings }}</el-tag
 						>
 					</template>
 				</el-table-column>
-				<el-table-column label="注册时间" >
+				<el-table-column label="注册时间">
 					<template #default="scope">
-						{{ scope.row.createTime.replace('T',' ') }}
+						{{ scope.row.updateTime.replace("T", " ") }}
+					</template>
+				</el-table-column>
+				<el-table-column>
+					<template #default="scope">
+						<el-button
+							type="danger"
+							:icon="Delete"
+							circle
+							@click="onDelBtnClick(scope.row.id)" />
 					</template>
 				</el-table-column>
 			</el-table>
@@ -139,8 +174,8 @@ onMounted(() => {
 			<el-pagination
 				background
 				layout="prev, pager, next"
-				:total="total" 
-				v-model="userSearchForm.page"/>
+				:total="total"
+				v-model="userSearchForm.page" />
 		</el-footer>
 	</el-container>
 </template>

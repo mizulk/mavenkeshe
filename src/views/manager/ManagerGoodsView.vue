@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { addGood, offShelves, pageGoods } from "@/api/goods";
+import { addGood, delGood, pageGoods } from "@/api/goods";
 import type {
 	AddGoodForm,
 	GoodInfor,
@@ -17,7 +17,7 @@ const tableData = ref<GoodInfor[]>([
 	{
 		id: 1,
 		goodName: "",
-		kindName: "",
+		kindType: "",
 		stock: 1,
 		price: 1,
 	},
@@ -30,7 +30,7 @@ const goodSearchForm = reactive<GoodPage>({
 	pageSize: 10,
 	id: undefined,
 	goodName: undefined,
-	kindName: undefined,
+	kindType: undefined,
 	price: undefined,
 	stock: undefined,
 });
@@ -39,7 +39,7 @@ const addGoodFormRef = ref<FormInstance>();
 const dialogFormVisible = ref(false);
 const addGoodForm = reactive<AddGoodForm>({
 	goodName: "",
-	kindName: "",
+	kindType: "",
 	stock: 0,
 	price: 0,
 });
@@ -73,12 +73,12 @@ async function onConfirmClick(form: FormInstance | undefined) {
 }
 
 function onDelBtnClick(id: number) {
-	ElMessageBox.confirm("你确定要下架这个")
+	ElMessageBox.confirm("你确定要删除这个商品")
 		.then(() => {
-			offShelves(id)
+			delGood(id)
 				.then(({ data }) => {
 					ElMessage({
-						message: data.code == 1 ? "下架成功" : "下架失败",
+						message: data.code == 1 ? "删除成功" : "删除失败",
 						type: data.code == 1 ? "success" : "error",
 					});
 					tableData.value.filter((item: GoodInfor) => item.id != id);
@@ -101,7 +101,7 @@ function onCloseBtnClick() {
 	goodSearchForm.pageSize = 10;
 	goodSearchForm.id = undefined;
 	goodSearchForm.goodName = undefined;
-	goodSearchForm.kindName = undefined;
+	goodSearchForm.kindType = undefined;
 	goodSearchForm.price = undefined;
 	goodSearchForm.stock = undefined;
 	pageGoods(goodSearchForm).then(handleRespone).catch(handleError);
@@ -115,7 +115,7 @@ function handleRespone(result: AxiosResponse<Result<GoodQuery<GoodInfor[]>>>) {
 			});
 		}
 		total.value = result.data.data.total;
-		tableData.value = result.data.data.data;
+		tableData.value = result.data.data.rows;
 		isSearching.value = true;
 	} else {
 		ElMessage({
@@ -146,7 +146,7 @@ onMounted(() => {
 				<el-form-item label="商品类型">
 					<el-input
 						placeholder="请输入你要查找的商品类型"
-						v-model="goodSearchForm.kindName" />
+						v-model="goodSearchForm.kindType" />
 				</el-form-item>
 				<br />
 				<el-form-item label="单价：">
@@ -224,7 +224,7 @@ onMounted(() => {
 				<el-input v-model="addGoodForm.goodName" autocomplete="off" />
 			</el-form-item>
 			<el-form-item label="类型名" required>
-				<el-input v-model="addGoodForm.kindName" />
+				<el-input v-model="addGoodForm.kindType" />
 			</el-form-item>
 			<el-form-item label="价格">
 				<el-input-number v-model="addGoodForm.price" min="1" />

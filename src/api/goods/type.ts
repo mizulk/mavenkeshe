@@ -7,14 +7,14 @@ export interface GoodInfor extends AddGoodForm {
 export interface GoodPage extends PageQuery {
 	id?: number;
 	goodName?: string;
-	kindName?: string;
+	kindType?: string;
 	stock?: number;
 	price?: number;
 }
 
 export interface AddGoodForm {
 	goodName: string;
-	kindName: string;
+	kindType: string;
 	stock: number;
 	price: number;
 }

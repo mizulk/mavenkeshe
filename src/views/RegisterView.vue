@@ -9,8 +9,11 @@ import {
 	type FormRules,
 } from "element-plus";
 import { reactive, ref } from "vue";
+import { useRouter } from "vue-router";
 
 const registerFromRef = ref<FormInstance>();
+
+const router = useRouter();
 
 const registerFrom = reactive<UserRegisterForm>({
 	userName: "",
@@ -80,6 +83,11 @@ const onRegisterBtnClick = async (formEl: FormInstance | undefined) => {
 							message: "注册成功，页面将于三秒后跳转到登录页面",
 							type: "success",
 						});
+						setTimeout(() => {
+							router.push({
+								path: "/login",
+							});
+						}, 3000);
 					} else {
 						ElMessage({
 							message: "注册失败",

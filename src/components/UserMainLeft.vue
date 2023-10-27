@@ -1,24 +1,24 @@
 <script setup lang="ts">
 import IconLightning from "./icons/IconLightning.vue";
 import ShortItem from "./ShortItem.vue";
-import Item1 from '@/assets/item.jpg'
-import Item2 from '@/assets/item2.jpg'
-import Item3 from '@/assets/item3.jpg'
-import Q1 from '@/assets/q1.jpg'
-import Q2 from '@/assets/q2.jpg'
-import Q3 from '@/assets/q3.jpg'
-import A from '@/assets/a.jpg'
+import Item1 from "@/assets/item.jpg";
+import Item2 from "@/assets/item2.jpg";
+import Item3 from "@/assets/item3.jpg";
+import Q1 from "@/assets/q1.jpg";
+import Q2 from "@/assets/q2.jpg";
+import Q3 from "@/assets/q3.jpg";
+import A from "@/assets/a.jpg";
 
-const Qs = [Q1,Q2,Q3]
+const Qs = [Q1, Q2, Q3];
 </script>
 
 <template>
 	<div class="left">
 		<div class="top">
-			<div class="hot-item"><img :src="A"></div>
+			<div class="hot-item"><img :src="A" /></div>
 			<el-carousel trigger="click">
-				<el-carousel-item v-for="item,index in Qs" :key="index">
-					<img class="carousel-item" :src="item" alt="">
+				<el-carousel-item v-for="(item, index) in Qs" :key="index">
+					<img class="carousel-item" :src="item" alt="" />
 				</el-carousel-item>
 			</el-carousel>
 		</div>
@@ -30,18 +30,9 @@ const Qs = [Q1,Q2,Q3]
 				</p>
 				<p class="time">00:00开始</p>
 			</div>
-			<ShortItem
-				name="星达遥控器可连接蓝牙"
-				price="59.9"
-				:src="Item1" />
-			<ShortItem
-				name="iPhone 13(A2634)"
-				price="5999.9"
-				:src="Item2" />
-			<ShortItem
-				name="iPhone 13(A2634)"
-				price="5999.9"
-				:src="Item3" />
+			<ShortItem name="星达遥控器可连接蓝牙" price="59.9" :src="Item1" />
+			<ShortItem name="iPhone 13(A2634)" price="5999.9" :src="Item2" />
+			<ShortItem name="iPhone 13(A2634)" price="5999.9" :src="Item3" />
 		</div>
 	</div>
 </template>
@@ -54,7 +45,7 @@ const Qs = [Q1,Q2,Q3]
 	.hot-item {
 		flex-grow: 1;
 		margin-top: 1rem;
-		>img{
+		> img {
 			height: 46rem;
 		}
 	}
@@ -66,7 +57,7 @@ const Qs = [Q1,Q2,Q3]
 		margin: 1rem;
 	}
 }
-.carousel-item{
+.carousel-item {
 	display: block;
 }
 .bottom {

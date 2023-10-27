@@ -2,7 +2,7 @@ import type { AxiosPromise } from "axios";
 import request from "../request";
 import type { CartItem, PageCart } from "./type";
 
-export function addACart(data: CartItem) {
+export function addCart(data: CartItem) {
 	return request({
 		url: "/cart",
 		method: "post",

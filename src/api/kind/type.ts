@@ -1,11 +1,12 @@
 export interface GoodsType {
 	id?: number;
-	type?: string;
+	kindType?: string;
 }
 
 export interface PageGoods {
-	page?: number;
-	pageSize?: number;
+	page: number;
+	pageSize: number;
+	goodName: string;
 	id?: number;
-	type?: string;
+	kindType?: string;
 }

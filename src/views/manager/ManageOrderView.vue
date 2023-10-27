@@ -7,16 +7,7 @@ import { ElMessage } from "element-plus";
 import { onMounted, reactive, ref } from "vue";
 
 const total = ref(0);
-const tableData = ref<OrderInfor[]>([
-	{
-		id: 1,
-		userId: 1,
-		goodId: 1,
-		amount: 1,
-		totalPrice: 1,
-		goodPrice: 1,
-	},
-]);
+const tableData = ref<OrderInfor[]>();
 
 const isSearching = ref(false);
 
@@ -58,7 +49,7 @@ function handleRespone(
 			});
 		}
 		total.value = result.data.data.total;
-		tableData.value = result.data.data.data;
+		tableData.value = result.data.data.rows;
 		isSearching.value = true;
 	} else {
 		ElMessage({

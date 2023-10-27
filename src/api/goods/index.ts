@@ -35,3 +35,10 @@ export function addGood(data: AddGoodForm): AxiosPromise<Result> {
 		data: data,
 	});
 }
+
+export function delGood(id: number): AxiosPromise<Result> {
+	return request({
+		url: `/goods/${id}`,
+		method: "delete",
+	});
+}

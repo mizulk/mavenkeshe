@@ -13,7 +13,7 @@ export function pageOrder(
 	});
 }
 
-export function addOrder(order: OrderInfor) {
+export function addOrder(order: OrderInfor): AxiosPromise<Result> {
 	return request({
 		url: "/orders",
 		method: "post",

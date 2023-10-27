@@ -3,6 +3,7 @@ import { ref } from "vue";
 
 export const userStore = defineStore("user", () => {
 	const token = ref("");
+	const userId = ref<number>(0);
 
 	function getToken() {
 		return token.value;
@@ -14,5 +15,6 @@ export const userStore = defineStore("user", () => {
 	return {
 		getToken,
 		setToken,
+		userId,
 	};
 });

@@ -11,5 +11,5 @@ export interface PageQuery {
 
 export interface PageResult<T = any> {
 	total: number;
-	data: T;
+	rows: T;
 }

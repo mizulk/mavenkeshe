@@ -3,12 +3,14 @@ import InconLogo from "@/components/icons/InconLogo.vue";
 import IconDayMode from "@/components/icons/IconDayMode.vue";
 import InconUser from "@/components/icons/IconUser.vue";
 import UserMainButton from "@/components/UserMainButton.vue";
-import { ref } from "vue";
 import { useDark, useToggle } from "@vueuse/core/index.cjs";
 
-const toggleDark = useToggle(useDark());
+const isDark = useDark();
+const toggleDark = useToggle(isDark);
 
-const searchContext = ref("");
+const emits = defineEmits<{
+	(event: "click"): void;
+}>();
 </script>
 
 <template>
@@ -25,10 +27,7 @@ const searchContext = ref("");
 				<div class="logo"><span>@</span>LANSHU</div>
 			</div>
 			<div class="search-warpper">
-				<el-input size="large" v-model="searchContext" />
-				<el-button color="#5c341b" size="large">
-					<span style="color: white">搜索</span>
-				</el-button>
+				<slot></slot>
 			</div>
 			<div class="user-warpper">
 				<UserMainButton text="白天模式" @click="toggleDark()">
