@@ -16,7 +16,7 @@ import { userStore as useUserStore } from "@/stores/user";
 import { type CartItem as cartitem } from "@/api/cart/type";
 
 const userStore = useUserStore();
-const cartVisible = ref(true);
+const cartVisible = ref(false);
 const searchVisible = ref(false);
 const isLoading = ref(false);
 const searchGood = reactive<PageGoods>({

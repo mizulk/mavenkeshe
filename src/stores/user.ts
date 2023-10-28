@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 export const userStore = defineStore("user", () => {
-	const token = ref("");
+	const token = ref<string>();
 	const userId = ref<number>(0);
 	const userName = ref<string>("");
 
