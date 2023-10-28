@@ -1,4 +1,3 @@
-import { userStore } from "@/stores/user";
 import LoginViewVue from "@/views/LoginView.vue";
 import { createRouter, createWebHistory } from "vue-router";
 

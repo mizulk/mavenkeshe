@@ -9,7 +9,6 @@ declare module 'vue' {
   export interface GlobalComponents {
     CartItem: typeof import('./src/components/CartItem.vue')['default']
     ElAside: typeof import('element-plus/es')['ElAside']
-    ElAvatar: typeof import('element-plus/es')['ElAvatar']
     ElButton: typeof import('element-plus/es')['ElButton']
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
@@ -47,8 +46,6 @@ declare module 'vue' {
     IconUser: typeof import('./src/components/icons/IconUser.vue')['default']
     IconWaterDrop: typeof import('./src/components/icons/IconWaterDrop.vue')['default']
     InconLogo: typeof import('./src/components/icons/InconLogo.vue')['default']
-    PriceInput: typeof import('./src/components/PriceInput.vue')['default']
-    PriceSelect: typeof import('./src/components/PriceSelect.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     ShortItem: typeof import('./src/components/ShortItem.vue')['default']
