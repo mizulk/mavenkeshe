@@ -30,9 +30,9 @@ const Qs = [Q1, Q2, Q3];
 				</p>
 				<p class="time">00:00开始</p>
 			</div>
-			<ShortItem name="星达遥控器可连接蓝牙" price="59.9" :src="Item1" />
-			<ShortItem name="iPhone 13(A2634)" price="5999.9" :src="Item2" />
-			<ShortItem name="iPhone 13(A2634)" price="5999.9" :src="Item3" />
+			<ShortItem name="大橙子" price="59.9" :src="Item1" />
+			<ShortItem name="苹果" price="30.6" :src="Item2" />
+			<ShortItem name="数位板" price="5999.9" :src="Item3" />
 		</div>
 	</div>
 </template>
